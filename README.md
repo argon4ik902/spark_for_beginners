@@ -13,8 +13,8 @@
 
 1. Клонируйте репозиторий:
    ```bash
-   git clone <url-репозитория>
-   cd spark
+   git clone https://github.com/argon4ik902/spark_for_beginners.git
+   cd spark_for_beginners
    ```
 
 2. Запустите контейнер с Jupyter Notebook:
