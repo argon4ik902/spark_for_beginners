@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  spark:
+    image: jupyter/pyspark-notebook:spark-3.3.2
+    container_name: pyspark-app
+    ports:
+      - "4040:4040"  # Spark UI
+      - "8888:8888"  # Jupyter Notebook
+    volumes:
+      - ./apps:/home/jovyan/work/apps
+    environment:
+      - PYTHONPATH=/usr/local/spark/python:/usr/local/spark-3.3.2-bin-hadoop3/python/lib/py4j-0.10.9.5-src.zip
+    command: >
+      bash -c "pip install py4j &&
+               start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''" 

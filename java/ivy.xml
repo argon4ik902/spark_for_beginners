@@ -1,0 +1,35 @@
+<ivy-module version="2.0">
+    <info organisation="org.apache.spark" module="spark-connector-cassandra-assembly" />
+    <dependencies>
+        <!-- Cassandra Connector Core -->
+        <dependency org="com.datastax.spark" name="spark-cassandra-connector_2.12" rev="3.3.0" />
+        <dependency org="com.datastax.spark" name="spark-cassandra-connector-driver_2.12" rev="3.3.0" />
+        
+        <!-- Необходимые зависимости -->
+        <dependency org="io.netty" name="netty-handler" rev="4.1.74.Final" />
+        <dependency org="io.netty" name="netty-buffer" rev="4.1.74.Final" />
+        <dependency org="io.netty" name="netty-common" rev="4.1.74.Final" />
+        <dependency org="io.netty" name="netty-transport" rev="4.1.74.Final" />
+        <dependency org="io.netty" name="netty-resolver" rev="4.1.74.Final" />
+        <dependency org="io.netty" name="netty-codec" rev="4.1.74.Final" />
+        
+        <!-- JNR POSIX для поддержки некоторых операций Netty -->
+        <dependency org="com.github.jnr" name="jnr-posix" rev="3.1.15" />
+        <dependency org="com.github.jnr" name="jnr-ffi" rev="2.2.11" />
+        <dependency org="com.github.jnr" name="jnr-constants" rev="0.10.3" />
+        
+        <!-- Драйвер для Cassandra -->
+        <dependency org="com.datastax.oss" name="java-driver-core" rev="4.14.1" />
+        <dependency org="com.datastax.oss" name="java-driver-query-builder" rev="4.14.1" />
+        <dependency org="com.datastax.oss" name="java-driver-mapper-runtime" rev="4.14.1" />
+        
+        <!-- Исключаем Spark, так как он уже включён в основной образ -->
+        <exclude org="org.apache.spark" module="spark-core_2.12" />
+        <exclude org="org.apache.spark" module="spark-sql_2.12" />
+        <exclude org="org.apache.spark" module="spark-catalyst_2.12" />
+        <exclude org="org.apache.spark" module="spark-tags_2.12" />
+        
+        <!-- Исключаем зависимость netty-tcnative, вызывающую проблемы -->
+        <exclude org="io.netty" module="netty-tcnative" />
+    </dependencies>
+</ivy-module> 

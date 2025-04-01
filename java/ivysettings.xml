@@ -1,0 +1,21 @@
+<ivysettings>
+    <settings defaultResolver="default" />
+    <resolvers>
+        <chain name="default">
+            <!-- Maven Central Repository -->
+            <ibiblio name="central" m2compatible="true" />
+            
+            <!-- Maven Datastax Repository -->
+            <ibiblio name="datastax" m2compatible="true" root="https://repo1.maven.org/maven2/" />
+            
+            <!-- Maven Apache Repository -->
+            <ibiblio name="apache" m2compatible="true" root="https://repo.maven.apache.org/maven2/" />
+            
+            <!-- Maven Spark Packages Repository -->
+            <ibiblio name="spark-packages" m2compatible="true" root="https://dl.bintray.com/spark-packages/maven/" />
+            
+            <!-- JCenter Repository -->
+            <ibiblio name="jcenter" m2compatible="true" root="https://jcenter.bintray.com/" />
+        </chain>
+    </resolvers>
+</ivysettings> 
